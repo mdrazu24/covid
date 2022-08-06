@@ -43,7 +43,7 @@ app.get("/", async (req, res) => {
     if (err) {
       throw err
     } else {
-        res.render("Home", {pokemons : result})
+        res.render("home", {pokemons : result})
 
     }
   }) )
@@ -51,22 +51,40 @@ app.get("/", async (req, res) => {
 })
 
 app.get("/list", (req, res) => {
-  res.render("List")
+  res.render("list")
 })
 
 app.get("/quiz", (req, res) => {
-  res.render("Quiz")
+  res.render("quiz")
 })
 
 app.get("/update", (req, res) => {
-  res.render("Update")
+  res.render("update")
 })
 
 app.post("/list",(req, res) => {
-  const elementName = ["Fire","Electric","Water","Gas","Normal"]
   // console.log(req.body)
-  res.json(req.body)
-    // res.render("pages/List")
+  const data = req.body
+  //save to db
+  db.query(
+    "INSERT INTO exam_monsters (imgName,name, moveSet, firstCaught, description , score, elementId) VALUES (?,?,?,?,?,?,?)",
+    [
+      data.imgName,
+      data.name,
+      data.moveSet,
+      data.firstCaught,
+      data.description,
+      data.score,
+      data.elementId,
+    ],
+    (err, result) => {
+      if (err) {
+        console.log(err)
+      }
+    }
+  )
+
+    res.render("list")
 })
 
 // app.all("*", (req, res) => {

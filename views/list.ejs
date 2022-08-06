@@ -3,19 +3,19 @@
     <body>
 
         <div class="container-fluid align-items-center justify-content-center d-flex">
-            <form action="/list" method="post" >
+            <form action="/list"  method="POST" novalidate >
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input  type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                    <input  type="text" class="form-control" name="name" id="name" aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <input type="text" class="form-control" id="description">
+                    <input type="text" class="form-control" name="description" id="description">
                 </div>
 
                 <div class="form-group">
                     <label for="elementId">Element</label>
-                    <select class="form-control" id="elementId">
+                    <select class="form-control" name="elementId" id="elementId">
                         <option value="0">Fire</option>
                         <option value="1">Electric</option>
                         <option value="2">Water</option>
@@ -26,26 +26,26 @@
 
                 <div class="form-group">
                     <label for="moveSet">Move Set</label>
-                    <input type="text" class="form-control" id="moveSet">
+                    <input type="text" name="moveSet" class="form-control" id="moveSet">
                 </div>
 
                 <div class="form-group">
                     <label for="firstCaught">Date Caught</label>
-                    <input type="date" class="form-control" id="firstCaught">
+                    <input type="date" name="firstCaught"  class="form-control" id="firstCaught">
                 </div>
 
                 <div class="form-group">
                     <label for="imageName">Image Name</label>
-                    <input type="text" class="form-control" id="imageName">
+                    <input type="text" name="imgName" class="form-control" id="imageName">
                 </div>
 
                 <div class="form-group">
                     <label for="score">Score</label>
-                    <input type="number" class="form-control" id="score">
+                    <input type="number" name="score" class="form-control" id="score">
                 </div>
 
                 <div class="form-group mt-2">
-                    <button type="submit" class="btn mt-10 btn-primary">add</button>
+                    <button type="submit"  class="btn mt-10 btn-primary">add</button>
                 </div>
 
             </form>
